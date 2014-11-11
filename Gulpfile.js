@@ -42,6 +42,11 @@ gulp.task('build:scripts', function () {
         .pipe(gulp.dest('./dist'));
 });
 
+gulp.task('copy:assets', function () {
+	return gulp.src('src/assets/*.jpg')
+		.pipe(gulp.dest('./dist/images'));
+});
+
 gulp.task('watch', function () {
 	gulp.watch('src/index.html', ['build:html']);
 	gulp.watch('src/**/*.js', ['build:scripts']);
@@ -61,8 +66,8 @@ gulp.task('livereload', function () {
 		.pipe(connect.reload());
 });
 
-gulp.task('build', ['clean', 'stylus:compile', 'build:html', 'build:scripts']);
+gulp.task('build', ['clean', 'stylus:compile', 'build:html', 'build:scripts', 'copy:assets']);
 
 gulp.task('default', ['jshint', 'build']);
 
-gulp.task('serve', ['stylus:compile', 'build:html', 'build:scripts', 'watch', 'livereload', 'server']);
+gulp.task('serve', ['copy:assets', 'stylus:compile', 'build:html', 'build:scripts', 'watch', 'livereload', 'server']);

@@ -1,9 +1,66 @@
 *
   box-sizing border-box
 
+h1, h2, h3, h4, h5, h6, p, ul, ol
+	margin 0
+
+
 html, body
   width 100%
-	height 100%
+  height 100%
 
 body
 	margin 0 auto
+	font-family "Open Sans", sans-serif
+	font-weight 400
+
+.container
+	width 100%
+	height 100%
+	margin 0 auto
+	header
+		padding 1em 6em
+		margin 0 auto
+		background-color #cacaca
+		width 100%
+		h1
+			font-weight 300
+			span
+				font-size 20px
+				display block
+	section.nav
+		padding 1em 3em
+		margin 0 auto
+		text-align center
+		background-color #99CC51
+		nav.nav-list a
+			position relative
+			display inline-block
+			margin 15px 25px
+			outline none
+			color #fff
+			text-decoration none
+			text-transform uppercase
+			letter-spacing 1px
+			font-weight 300
+			text-shadow 0 0 1px rgba(255, 255, 255, 0.4)
+			font-size 1.3em
+		nav.nav-list a::before
+			position absolute
+			top 70%
+			left 50%
+			color transparent
+			content '•'
+			text-shadow 0 0 transparent
+			font-size 1.2em
+			transition text-shadow 300ms, color 300ms
+			transform translateX(-50%)
+			pointer-events none
+		nav.nav-list a:hover::before
+			color #fff
+			text-shadow 10px 0 #fff, -10px 0 #fff
+			
+
+			
+				
+	
